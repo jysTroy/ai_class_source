@@ -1,8 +1,9 @@
 package org.koreait.proxy2;
 
 import org.aopalliance.intercept.Invocation;
-import org.springframework.cglib.proxy.InvocationHandler;
 
+
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 public class Performance2Calculator implements InvocationHandler {
@@ -18,7 +19,7 @@ public class Performance2Calculator implements InvocationHandler {
         try {
             Object result = method.invoke(instance, args); // 핵심 기능을 대신 수행
 
-            return null;
+            return result;
 
         } finally { // 공통 기능
             long etime = System.nanoTime();
