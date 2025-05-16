@@ -7,6 +7,7 @@ public class RecCalculator implements Calculator {
             return 1L;
         }
 
-        return num *  factorial(num - 1);
+        return num * factorial(num - 1);
     }
+
 }

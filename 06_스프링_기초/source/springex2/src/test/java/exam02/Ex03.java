@@ -11,7 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 @SpringJUnitConfig(AppCtx2.class)
 public class Ex03 {
     @Autowired
-    private RecCalculator calculator;
+    private Calculator calculator;
 
     @BeforeEach
     void init() {
@@ -22,5 +22,15 @@ public class Ex03 {
     void test1() {
         long result = calculator.factorial(10L);
         System.out.printf("result:%d%n", result);
+
+        result = calculator.factorial(10L);
+        System.out.printf("result:%d%n", result);
+
+        result = calculator.factorial(10L);
+        System.out.printf("result:%d%n", result);
+
+        result = calculator.factorial(10L);
+        System.out.printf("result:%d%n", result);
+
     }
 }
