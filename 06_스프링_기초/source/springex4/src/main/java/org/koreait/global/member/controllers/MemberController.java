@@ -3,59 +3,41 @@ package org.koreait.global.member.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
 public class MemberController {
 
-    @GetMapping // /member
-    public String inex() {
-        return "member/test";
+    /**
+     * MemberController에서 공통으로 공유할 수 있는 속성
+     *
+     * @return
+     */
+    @ModelAttribute("commonTitle")
+    public String commonTitle() {
+        return "회원 공통 제목";
     }
 
-    @GetMapping("/join") // 요청주소 /member/join
-    public String joinPage() {
-
-        return "member/join"; // 템플릿 경로
+    @ModelAttribute("hobbies")
+    public List<String> hobbies() {
+        return List.of("취미1", "취미2", "취미3");
     }
 
-    @PostMapping("/join") //member/join
-    public String joinPs(RequestJoin form) {
+    @GetMapping("/join")
+    public String join(@ModelAttribute RequestJoin form) {
         System.out.println(form);
-        return "member/join_ps";
+
+        return "member/join";
     }
 
-    /*@PostMapping("/member/join")
-    public String joinPs(
-            @RequestParam(name="email", defaultValue = "기본 이메일") String email,
-            @RequestParam("password") String password,
-            @RequestParam("confirmPassword") String confirmPassword,
-            @RequestParam(name="agree", required = false) Boolean agree) {
-        System.out.println("POST 요청 유입");
-        System.out.printf("email=%s, agree=%s%n", email, agree);
+    @PostMapping("/join")
+    public String joinPs(RequestJoin form) { // requestJoin
 
-        return "member/join_ps";
-    }*/
-
-    /*
-    @GetMapping("/member/register")
-    public String joinPage(@RequestParam("agree") boolean agree, @RequestParam("email")String email, Model model) {
-        System.out.printf("agree:%s, email:%s%n", agree, email);
-        model.addAttribute("message", "안녕하세요");
-        return "member/join"; // /WEB-INF/templates/member/join.jsp -> ModelAndView로 변환
-    } */
-
-    /*@GetMapping("/member/register")
-    public ModelAndView joinPage() {
-        ModelAndView mv = new ModelAndView();
-
-        mv.addObject("message", "안녕하세요.");
-        mv.setViewName("member/join");
-
-        return mv;
-    }*/
+        return "member/join";
+    }
 }
