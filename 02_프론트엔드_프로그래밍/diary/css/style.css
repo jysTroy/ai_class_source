@@ -1,0 +1,58 @@
+svg {
+    position: relative;
+    top: -2px;
+}
+
+#diary-content {
+    height: 300px;
+    border-radius: 5px;
+}
+
+#calendar-dates {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#calendar-dates > li {
+    width: calc(100% / 7);
+}
+
+#calendar-dates input[type='radio'] {
+    display: none;
+}
+
+#calendar-dates input[type='radio'] + label {
+    cursor: pointer;
+}
+
+#calendar-dates input[type='radio']:checked + label {
+    color: blue;
+}
+
+.calendar-container{
+    width: 700px;
+    margin: 30px auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container .yoil {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
+  }
+
+li {
+    padding: 5px;
+}
