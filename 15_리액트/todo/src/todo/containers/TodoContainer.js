@@ -45,7 +45,21 @@ const TodoContainer = () => {
 
   // 체크박스 토글 처리
   const onToggle = (id) => {
-    setItems((prevItems) => )
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item,
+      ),
+    );
+  };
+
+  // 스케줄 하나 삭제 처리
+  const onRemove = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  // 선택된 스케줄 일괄 삭제 처리
+  const onRemoveAll = () => {
+    setItems(items.filter(({ checked }) => !checked));
   };
 
   return (
@@ -56,7 +70,12 @@ const TodoContainer = () => {
         form={form}
         errors={errors}
       />
-      <TodoItems items={items} />
+      <TodoItems
+        items={items}
+        onToggle={onToggle}
+        onRemove={onRemove}
+        onRemoveAll={onRemoveAll}
+      />
     </>
   );
 };

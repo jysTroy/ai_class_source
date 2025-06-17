@@ -1,9 +1,14 @@
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
-const TodoItem = ({ title, content, checked }) => {
+import { FaRegWindowClose } from 'react-icons/fa';
+
+const TodoItem = ({ id, title, content, checked, onToggle, onRemove }) => {
   return (
     <li>
-      {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-      {title} / {content}
+      <span onClick={() => onToggle(id)}>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        {title} / {content}
+      </span>
+      <FaRegWindowClose onClick={() => onRemove(id)} />
     </li>
   );
 };
