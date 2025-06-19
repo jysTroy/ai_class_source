@@ -1,3 +1,4 @@
+import React from 'react';
 import AverageChild2 from './AverageChild2';
 
 const AverageChild1 = () => {
@@ -9,4 +10,4 @@ const AverageChild1 = () => {
     </>
   );
 };
-export default AverageChild1;
+export default React.memo(AverageChild1);
