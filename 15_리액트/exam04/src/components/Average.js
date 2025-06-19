@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import AverageChild1 from './AverageChild1';
 
 const getAverage = (items) => {
@@ -50,4 +50,4 @@ const Average = () => {
   );
 };
 
-export default Average;
+export default React.memo(Average);
