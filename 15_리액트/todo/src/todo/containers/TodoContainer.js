@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { produce } from 'immer';
 import TodoForm from '../components/TodoForm';
 import TodoItems from '../components/TodoItems';
 
@@ -33,7 +34,12 @@ const TodoContainer = () => {
 
     if (hasErrors) return;
 
-    setItems(items.concat({ ...form, id: Date.now() }));
+    // setItems(items.concat({ ...form, id: Date.now() }));
+    setItems(
+      produce((draft) => {
+        draft.push({ ...form, id: Date.now() });
+      }),
+    );
 
     // 양식 초기화
     setForm({});
@@ -54,7 +60,13 @@ const TodoContainer = () => {
 
   // 스케줄 하나 삭제 처리
   const onRemove = (id) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    // setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    const index = items.findIndex((item) => item.id == id);
+    setItems(
+      produce((draft) => {
+        draft.splice(index, 1, 0);
+      }),
+    );
   };
 
   // 선택된 스케줄 일괄 삭제 처리
