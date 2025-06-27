@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+// import SassComponent from './sass/SassComponents';
+// import CSSModule from './CSSModule/CSSModule';
+// import MyComponent1 from './classNames/MyComponent1';
+import StyledComponent1 from './styled/StyledComponent1';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  // return <SassComponent />;
+  // return <CSSModule />;
+  return <StyledComponent1 />;
+};
 
 export default App;
