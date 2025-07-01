@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const WritePage = () => {
   return <h1>글 작성</h1>;
