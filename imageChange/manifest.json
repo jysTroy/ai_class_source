@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "image to pepe",
+  "name": "image to anything",
   "version": "0.1",
   "content_scripts": [
     {
