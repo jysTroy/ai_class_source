@@ -6,7 +6,7 @@ const boardList = {
   notice: '공지사항',
 };
 
-const Listpage = () => {
+const ListPage = () => {
   const [title, setTitle] = useState();
   const { bid } = useParams();
 
@@ -17,4 +17,4 @@ const Listpage = () => {
   return <h1>{title}</h1>;
 };
 
-export default React.memo(Listpage);
+export default React.memo(ListPage);
