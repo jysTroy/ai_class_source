@@ -1,0 +1,27 @@
+server:
+  port: 3000
+
+spring:
+  # 데이터베이스 설정
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/STUDY_JPA
+    username: STUDY_JPA
+    password: 1234
+
+  # JPA 설정
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddlAuto: create
+
+# JAP 설정만으로 출력이 안되기에 로거 설정
+logging:
+  level:
+    # sql 실행시 바인딩된 레벨값 높이기
+    org.hibernate.type: trace
+    org.hibernate.orm.jdbc.bind: trace
