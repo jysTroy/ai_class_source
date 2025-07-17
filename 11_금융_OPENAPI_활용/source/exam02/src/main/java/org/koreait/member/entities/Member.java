@@ -2,9 +2,13 @@ package org.koreait.member.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+import org.koreait.board.entities.BoardData;
 import org.koreait.global.entities.Address;
 import org.koreait.global.entities.BaseEntity;
 import org.koreait.member.constants.Authority;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -50,8 +54,15 @@ public class Member extends BaseEntity {
     @Embedded
     private Address address;
 
-    @Transient // 엔티티로 관리되는 필드 X, 엔티티 클래스 내부에서만 사용할 목적
-    private String profileImage;
+    // @Transient // 엔티티로 관리되는 필드 X, 엔티티 클래스 내부에서만 사용할 목적
+//    private String profileImage;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.REMOVE},  orphanRemoval = true)
+    private List<BoardData> items;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private MemberProfile profile;
 
 //    @Temporal(TemporalType.DATE)
 //    private Date modifiedAt;

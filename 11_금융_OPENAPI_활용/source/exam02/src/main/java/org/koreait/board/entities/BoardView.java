@@ -1,4 +1,4 @@
-package org.koreait.global.board.entities;
+package org.koreait.board.entities;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

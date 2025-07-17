@@ -1,4 +1,4 @@
-package org.koreait.global.board.entities;
+package org.koreait.board.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

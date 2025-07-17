@@ -1,8 +1,11 @@
-package org.koreait.global.board.entities;
+package org.koreait.board.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import org.koreait.global.entities.BaseEntity;
+import org.koreait.member.entities.Member;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -13,6 +16,10 @@ public class BoardData extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="mSeq")
+    private Member member;
+
     @Column(nullable = false)
     private String subject;
 
@@ -22,4 +29,7 @@ public class BoardData extends BaseEntity {
 
     @Column(nullable = false, length = 45)
     private String poster;
+
+    @ManyToMany
+    private List<HashTag> tags;
 }
