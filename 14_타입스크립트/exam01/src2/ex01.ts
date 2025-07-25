@@ -8,4 +8,6 @@ let user01 = {
     name: "사용자01",
 }
 
-user01 = user01 as UserType
+
+// user01 = user01 as UserType
+// delete user01.email
